@@ -1,0 +1,148 @@
+.App {
+  text-align: center;
+}
+
+.container{
+ position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 600px;
+  height: 600px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid green;
+}
+
+.tit-main{
+  color: rgb(97, 152, 254);
+}
+
+.input-main{
+  width: 300px;
+  height: 30px;
+  border: 1px solid green;
+}
+
+.button-main{
+  width: 150px;
+  height: 50px;
+  border: 0;
+  border-radius: 10px;
+  background-color:rgb(97, 152, 254) ;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.div-computer{
+  display: flex;
+  justify-content: flex-start;
+  width: 600px;
+}
+
+.playerName-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 600px;
+  height: 70px;
+  cursor: pointer;
+}
+
+.button-next{
+  width: 150px;
+  height: 50px;
+  border: 0;
+  border-radius: 10px;
+  background-color:rgb(97, 152, 254) ;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+
+
+.containerGameOver{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  height: 600px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.titGameOver{
+  font-size: 50px;
+  color: rgb(241, 119, 119);
+}
+
+.buttonGameOver{
+  font-size: 20px;
+  background-color: rgb(241, 119, 119);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+  height: 80px;
+  border-radius: 10px;
+}
+
+.messageGameOver{
+  font-size: 80px;
+    color: rgb(231, 21, 21);
+}
+
+
+.tableDiv{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  overflow: auto;
+  width: 600px;
+  height: 600px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid green;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table tr {
+  height: 50px;
+}
+
+.table td {
+  width: 33.33%;
+  border-bottom: 1px solid black; 
+}
+
+.buttonTryAgain{
+   width: 150px;
+  height: 50px;
+  border: 0;
+  border-radius: 10px;
+  background-color:rgb(97, 152, 254) ;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
