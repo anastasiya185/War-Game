@@ -9,10 +9,12 @@ function App() {
   const [playerName, setPlayerName] =useState()
   const [openGame, setOpenGame] = useState(false);
   const [showGamePage, setShowGamePage] = useState(true)
-   const [playerResults, setPlayerResults] = useState({});
+  const [playerResults, setPlayerResults] = useState({});
 
 
-  
+
+
+
   const addPlayerName = (playerName) =>{
     setPlayerName(playerName)
   }
