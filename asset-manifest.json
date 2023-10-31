@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/anastasiya185.github.io/War-Game/static/css/main.20917feb.css",
-    "main.js": "/anastasiya185.github.io/War-Game/static/js/main.3b2ac598.js",
-    "static/js/787.d3befce1.chunk.js": "/anastasiya185.github.io/War-Game/static/js/787.d3befce1.chunk.js",
-    "static/media/king_of_hearts.png": "/anastasiya185.github.io/War-Game/static/media/king_of_hearts.e5bfdac2b8511ce0aefe.png",
-    "static/media/queen_of_clubs.png": "/anastasiya185.github.io/War-Game/static/media/queen_of_clubs.64232a1197447d62a49d.png",
-    "static/media/jack_of_hearts.png": "/anastasiya185.github.io/War-Game/static/media/jack_of_hearts.d161a1f6a39e5c297e3a.png",
-    "static/media/king_of_diamonds.png": "/anastasiya185.github.io/War-Game/static/media/king_of_diamonds.ddba270ef8e33fe6b0d6.png",
-    "static/media/queen_of_hearts.png": "/anastasiya185.github.io/War-Game/static/media/queen_of_hearts.2fc4da7ef40512079764.png",
-    "static/media/jack_of_diamonds.png": "/anastasiya185.github.io/War-Game/static/media/jack_of_diamonds.2648f3e42ba89f7458f7.png",
-    "static/media/jack_of_spades.png": "/anastasiya185.github.io/War-Game/static/media/jack_of_spades.7f7809ce1cce21683ab6.png",
-    "static/media/jack_of_clubs.png": "/anastasiya185.github.io/War-Game/static/media/jack_of_clubs.b0e5f3615b277162fd4d.png",
-    "static/media/queen_of_diamonds.png": "/anastasiya185.github.io/War-Game/static/media/queen_of_diamonds.4bd87f94de758895d345.png",
-    "static/media/queen_of_spades.png": "/anastasiya185.github.io/War-Game/static/media/queen_of_spades.48e5d025937e28a55022.png",
-    "static/media/king_of_clubs.png": "/anastasiya185.github.io/War-Game/static/media/king_of_clubs.de5d2f92709cc07047e9.png",
-    "static/media/king_of_spades.png": "/anastasiya185.github.io/War-Game/static/media/king_of_spades.7b23f2315075d94a7fc2.png",
-    "index.html": "/anastasiya185.github.io/War-Game/index.html",
-    "main.20917feb.css.map": "/anastasiya185.github.io/War-Game/static/css/main.20917feb.css.map",
-    "main.3b2ac598.js.map": "/anastasiya185.github.io/War-Game/static/js/main.3b2ac598.js.map",
-    "787.d3befce1.chunk.js.map": "/anastasiya185.github.io/War-Game/static/js/787.d3befce1.chunk.js.map"
+    "main.css": "/War-Game/static/css/main.20917feb.css",
+    "main.js": "/War-Game/static/js/main.91fc8f58.js",
+    "static/js/787.d3befce1.chunk.js": "/War-Game/static/js/787.d3befce1.chunk.js",
+    "static/media/king_of_hearts.png": "/War-Game/static/media/king_of_hearts.e5bfdac2b8511ce0aefe.png",
+    "static/media/queen_of_clubs.png": "/War-Game/static/media/queen_of_clubs.64232a1197447d62a49d.png",
+    "static/media/jack_of_hearts.png": "/War-Game/static/media/jack_of_hearts.d161a1f6a39e5c297e3a.png",
+    "static/media/king_of_diamonds.png": "/War-Game/static/media/king_of_diamonds.ddba270ef8e33fe6b0d6.png",
+    "static/media/queen_of_hearts.png": "/War-Game/static/media/queen_of_hearts.2fc4da7ef40512079764.png",
+    "static/media/jack_of_diamonds.png": "/War-Game/static/media/jack_of_diamonds.2648f3e42ba89f7458f7.png",
+    "static/media/jack_of_spades.png": "/War-Game/static/media/jack_of_spades.7f7809ce1cce21683ab6.png",
+    "static/media/jack_of_clubs.png": "/War-Game/static/media/jack_of_clubs.b0e5f3615b277162fd4d.png",
+    "static/media/queen_of_diamonds.png": "/War-Game/static/media/queen_of_diamonds.4bd87f94de758895d345.png",
+    "static/media/queen_of_spades.png": "/War-Game/static/media/queen_of_spades.48e5d025937e28a55022.png",
+    "static/media/king_of_clubs.png": "/War-Game/static/media/king_of_clubs.de5d2f92709cc07047e9.png",
+    "static/media/king_of_spades.png": "/War-Game/static/media/king_of_spades.7b23f2315075d94a7fc2.png",
+    "index.html": "/War-Game/index.html",
+    "main.20917feb.css.map": "/War-Game/static/css/main.20917feb.css.map",
+    "main.91fc8f58.js.map": "/War-Game/static/js/main.91fc8f58.js.map",
+    "787.d3befce1.chunk.js.map": "/War-Game/static/js/787.d3befce1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.20917feb.css",
-    "static/js/main.3b2ac598.js"
+    "static/js/main.91fc8f58.js"
   ]
 }
