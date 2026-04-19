@@ -1,60 +1,94 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react';
 
-export default function GameOver({ computerRusult, myResult, setShowGamePage, playerName, open }) {
-    const [showResult, setShowResult] = useState(false);
-    const [WinMessage, setWinMessage] = useState('');
+export default function GameOver({
+  playerName,
+  myResult,
+  computerResult,
+  round,
+  showLeaderboard,
+  restartGame,
+}) {
+  const isWinner = myResult > computerResult;
+  const isDraw = myResult === computerResult;
 
+  const saveResult = () => {
+    const statsLS = localStorage.getItem('stats') || '[]';
+    const stats = JSON.parse(statsLS);
 
+    const existingPlayer = stats.find((item) => item.name === playerName);
 
-    const saveResult = (name, result) => {
-        const statsLS = localStorage.getItem('stats') || '[]';
-        const stats = JSON.parse(statsLS)
-        let newResult = stats
-        const newName = stats.find((item) => {
-            return item.name === name
-        })
-        if (!stats.length || !newName) {
-            newResult = [...stats, { name, result }]
-        } else if (result) {
-            newResult = stats.map((item) => {
-                if (item.name === name) {
-                    return { name: name, result: item.result + 1 }
-                } else {
-                    return item
-                }
-            })
+    let updatedStats;
+
+    if (!existingPlayer) {
+      updatedStats = [
+        ...stats,
+        {
+          name: playerName,
+          wins: isWinner ? 1 : 0,
+          games: 1,
+        },
+      ];
+    } else {
+      updatedStats = stats.map((item) => {
+        if (item.name === playerName) {
+          return {
+            ...item,
+            wins: item.wins + (isWinner ? 1 : 0),
+            games: item.games + 1,
+          };
         }
-        localStorage.setItem("stats", JSON.stringify(newResult))
+
+        return item;
+      });
     }
 
-    const checkResult = () => {
-        const conditionWin = myResult > computerRusult
-        if (conditionWin) {
-            setWinMessage('You win!!!');
-        } else {
-            setWinMessage('You lose');
-        }
-        setShowResult(true)
-        saveResult(playerName, Number(conditionWin))
-    }
+    localStorage.setItem('stats', JSON.stringify(updatedStats));
+  };
 
+  useEffect(() => {
+    saveResult();
+  }, []);
 
-    useEffect(() => {
-        if (open) {
-            checkResult();
-        }
-    }, [open]);
+  const finalMessage = isDraw
+    ? 'It is a draw'
+    : isWinner
+      ? 'You win!'
+      : 'Computer wins';
 
-    const handleCheckResultClick = () => {
-        setShowGamePage(false)
-    };
+  return (
+    <div className="gameOverOverlay">
+      <section className="gameOverCard">
+        <p className="smallLabel">Game Over</p>
 
+        <h1>{finalMessage}</h1>
 
-    return (
-        open && (<div className='containerGameOver'>
-            <div className='titGameOver'>Game Over! No more cards in the deck.</div>
-            <button className='buttonGameOver' onClick={handleCheckResultClick}>Check result</button>
-            {showResult && <div className='messageGameOver'>{WinMessage}</div>}
-        </div>)
-    )
+        <div className="finalStats">
+          <div>
+            <span>{playerName}</span>
+            <strong>{myResult}</strong>
+          </div>
+
+          <div>
+            <span>Computer</span>
+            <strong>{computerResult}</strong>
+          </div>
+
+          <div>
+            <span>Rounds</span>
+            <strong>{round}</strong>
+          </div>
+        </div>
+
+        <div className="gameOverActions">
+          <button className="primaryButton" onClick={showLeaderboard}>
+            View Leaderboard
+          </button>
+
+          <button className="secondaryButton" onClick={restartGame}>
+            Play Again
+          </button>
+        </div>
+      </section>
+    </div>
+  );
 }

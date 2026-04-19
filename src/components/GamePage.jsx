@@ -1,67 +1,137 @@
-import React, { useEffect, useState } from 'react'
-import cards from '../data.js'
-import GameOver from './GameOver.jsx'
+import React, { useEffect, useState } from 'react';
+import cards from '../data.js';
+import GameOver from './GameOver.jsx';
 
-const GamePage = ({ playerName, setShowGamePage }) => {
-  const [deck, setDeck] = useState(cards)
-  const [myCard, setMyCard] = useState()
-  const [computerCard, setComputerCard] = useState()
-  const [myResult, setMyResult] = useState(0)
-  const [computerRusult, setComputerResult] = useState(0)
+const shuffle = (array) => {
+  const newArray = [...array];
 
-  console.log(deck);
-
-  const shuffle = (array) => {
-    const newArray = [...array];
-    for (let i = newArray.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-    }
-    return newArray;
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
   }
-  const shuffledDeck = shuffle(deck);
 
-  const nextTurn = () => {
-    const newDeck = [...shuffledDeck];
-    const myCard = newDeck.pop()
-    const computerCard = newDeck.pop()
-    setMyCard(myCard)
-    setComputerCard(computerCard)
-    setDeck(newDeck)
-    if (myCard.value < computerCard.value) {
-      setMyResult(myResult + 1);
-    } else {
-      setComputerResult(computerRusult + 1);
-    }
-  }
+  return newArray;
+};
+
+export default function GamePage({ playerName, showLeaderboard, restartGame }) {
+  const [deck, setDeck] = useState([]);
+  const [myCard, setMyCard] = useState(null);
+  const [computerCard, setComputerCard] = useState(null);
+  const [myResult, setMyResult] = useState(0);
+  const [computerResult, setComputerResult] = useState(0);
+  const [round, setRound] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
+  const [roundMessage, setRoundMessage] = useState('Click Next Round to draw cards');
 
   useEffect(() => {
-    nextTurn()
-  }, [])
+    setDeck(shuffle(cards));
+  }, []);
 
+  const nextTurn = () => {
+    if (deck.length < 2) {
+      setGameOver(true);
+      return;
+    }
+
+    const newDeck = [...deck];
+    const playerCard = newDeck.pop();
+    const botCard = newDeck.pop();
+
+    setMyCard(playerCard);
+    setComputerCard(botCard);
+    setDeck(newDeck);
+    setRound((prev) => prev + 1);
+
+    if (playerCard.value > botCard.value) {
+      setMyResult((prev) => prev + 1);
+      setRoundMessage(`${playerName} wins this round`);
+    } else if (playerCard.value < botCard.value) {
+      setComputerResult((prev) => prev + 1);
+      setRoundMessage('Computer wins this round');
+    } else {
+      setRoundMessage('Draw');
+    }
+
+    if (newDeck.length < 2) {
+      setGameOver(true);
+    }
+  };
 
   return (
-    <div className='container'>
-      <div className='div-computer'>
-        <h1 className='tit-computer'>COMPUTER</h1>
-      </div>
+    <main className="page gamePage">
+      <section className="gameHeader">
+        <div>
+          <p className="smallLabel">Round {round}</p>
+          <h1>War Card Battle</h1>
+        </div>
 
-      <div className='computerCard'><p><img src={myCard?.src} alt="" /></p></div>
-      <div className='playerCard'><p><img src={computerCard?.src} alt="" /></p></div>
+        <div className="scoreBoard">
+          <div>
+            <span>{playerName}</span>
+            <strong>{myResult}</strong>
+          </div>
 
-      <div className='playerName-button'>
-        <button className='button-next' onClick={nextTurn}>NEXT</button>
-        <h1 className='playerName'>{playerName}</h1>
-      </div>
-      {<GameOver
-        open={deck.length === 0}
-        myResult={myResult}
-        computerRusult={computerRusult}
-        setShowGamePage={setShowGamePage}
-        playerName={playerName}
-      />}
-    </div>
-  )
+          <div>
+            <span>Computer</span>
+            <strong>{computerResult}</strong>
+          </div>
+
+          <div>
+            <span>Cards left</span>
+            <strong>{deck.length}</strong>
+          </div>
+        </div>
+      </section>
+
+      <section className="battleArena">
+        <div className="playerPanel">
+          <h2>Computer</h2>
+
+          <div className="cardSlot">
+            {computerCard ? (
+              <img src={computerCard.src} alt="Computer card" />
+            ) : (
+              <div className="cardBack">?</div>
+            )}
+          </div>
+        </div>
+
+        <div className="centerPanel">
+          <div className="versusBadge">VS</div>
+          <p>{roundMessage}</p>
+
+          <button
+            className="primaryButton"
+            onClick={nextTurn}
+            disabled={gameOver}
+          >
+            Next Round
+          </button>
+        </div>
+
+        <div className="playerPanel">
+          <h2>{playerName}</h2>
+
+          <div className="cardSlot">
+            {myCard ? (
+              <img src={myCard.src} alt="Player card" />
+            ) : (
+              <div className="cardBack">?</div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {gameOver && (
+        <GameOver
+          playerName={playerName}
+          myResult={myResult}
+          computerResult={computerResult}
+          round={round}
+          showLeaderboard={showLeaderboard}
+          restartGame={restartGame}
+        />
+      )}
+    </main>
+  );
 }
-
-export default GamePage;
