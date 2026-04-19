@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/War-Game/static/css/main.20917feb.css",
-    "main.js": "/War-Game/static/js/main.91fc8f58.js",
+    "main.css": "/War-Game/static/css/main.f044bbcb.css",
+    "main.js": "/War-Game/static/js/main.27fdbdc5.js",
     "static/js/787.d3befce1.chunk.js": "/War-Game/static/js/787.d3befce1.chunk.js",
     "static/media/king_of_hearts.png": "/War-Game/static/media/king_of_hearts.e5bfdac2b8511ce0aefe.png",
     "static/media/queen_of_clubs.png": "/War-Game/static/media/queen_of_clubs.64232a1197447d62a49d.png",
@@ -16,12 +16,12 @@
     "static/media/king_of_clubs.png": "/War-Game/static/media/king_of_clubs.de5d2f92709cc07047e9.png",
     "static/media/king_of_spades.png": "/War-Game/static/media/king_of_spades.7b23f2315075d94a7fc2.png",
     "index.html": "/War-Game/index.html",
-    "main.20917feb.css.map": "/War-Game/static/css/main.20917feb.css.map",
-    "main.91fc8f58.js.map": "/War-Game/static/js/main.91fc8f58.js.map",
+    "main.f044bbcb.css.map": "/War-Game/static/css/main.f044bbcb.css.map",
+    "main.27fdbdc5.js.map": "/War-Game/static/js/main.27fdbdc5.js.map",
     "787.d3befce1.chunk.js.map": "/War-Game/static/js/787.d3befce1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.20917feb.css",
-    "static/js/main.91fc8f58.js"
+    "static/css/main.f044bbcb.css",
+    "static/js/main.27fdbdc5.js"
   ]
 }
